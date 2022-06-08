@@ -1,6 +1,10 @@
 import time
 
+inventaris = []
+
 def uitvoeren(kamer):
+  if kamer == 'inventaris':
+    return inventaris
   # acties keuken
   if kamer == 'keuken':
     while True:
@@ -24,22 +28,35 @@ Doe die deur toch eens dicht! Zo kan ik de klok toch niet lezen??? En het licht 
   # acties loggia
   if kamer == 'loggia':
     while True:
-      keuze = input('''
-1. Neem de stofzuiger mee
+      if 'stofzuiger' not in inventaris:
+        keuze = input('''
+  1. Neem de stofzuiger mee
+  2. actie 2
+  Kies actie 1 of 2 of typ 'terug'\n
+  actie: ''')
+        if keuze == str(1):
+          inventaris.append('stofzuiger')
+          print('''
+  Stofzuiger aan inventaris toegevoegd''')
+          time.sleep(2)
+        elif keuze == str(2):
+          print('''
+  actie 2 gedaan''')
+          time.sleep(2)
+        elif keuze == 'terug':
+          break
+      else:
+        keuze = input('''
+1. (Stofzuiger heb je al meegenomen)
 2. actie 2
 Kies actie 1 of 2 of typ 'terug'\n
 actie: ''')
-      if keuze == str(1):
-        print('''
-actie 1 gedaan''')
-        time.sleep(2)
-      elif keuze == str(2):
-        print('''
-actie 2 gedaan''')
-        time.sleep(2)
-      elif keuze == 'terug':
-        break
-
+        if keuze == str(2):
+          print('''
+actie 2 gedaan ''')
+          time.sleep(2)
+        elif keuze == 'terug':
+          break
 #   # acties KAMER
 #   elif kamer == 'KAMER':
 #     while True:

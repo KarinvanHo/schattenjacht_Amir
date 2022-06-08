@@ -1,18 +1,22 @@
 import teksten
 import acties
 
-inventaris = {}
 
 kamers = {'keuken': teksten.keuken, 'loggia': teksten.loggia, 'slaapkamer': teksten.slaapkamer,
 		  'studio': teksten.studio, 'toilet': teksten.toilet, 'washok': teksten.washok, 'woonkamer': teksten.woonkamer}
 
+inventaris = acties.uitvoeren('inventaris')
+
 
 def print_overzicht(lijst):
-	if lijst == {}:
+	if lijst == {} or lijst == []:
 		print(f'Overzicht is leeg')
-	else:
+	elif type(lijst) == dict:
 		for key in lijst.keys():
 			print(key)
+	else:
+		for item in lijst:
+			print(item)
 
 
 def print_omgeving(kamer):
