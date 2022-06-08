@@ -1,92 +1,60 @@
+import time
+
 def uitvoeren(kamer):
   # acties keuken
   if kamer == 'keuken':
-    keuze = input('''
-    1. inspecteer pollepel
-    2. inspecteer deur ketelruimte
-    Kies actie 1 of 2 of typ 'terug'\n
-    ''')
-    if keuze == str(1):
-      print('meui heur')
-    elif keuze == str(2):
-      print('doe die deur dicht! Zo kan ik de klok toch niet lezen?')
-    elif keuze == 'terug':
-      print('')
+    while True:
+      keuze = input('''
+1. inspecteer het plankje onder de koelkast
+2. inspecteer de deur naar de ketelruimte
+Kies actie 1 of 2 of typ 'terug'\n
+actie: ''')
+      if keuze == str(1):
+        print('''
+Zou het? Niet echt een originele plek voor een cadeau. Je verwijdert het plankje
+en voor je het weet schiet Misha onder de koelkast. POOOEEESSSS. Je kijkt in de
+ruimte maar ziet geen cadeau. Wel een stoffige kat die jer weer onderuit vist.''')
+        time.sleep(2)
+      elif keuze == str(2):
+        print('''
+Doe die deur toch eens dicht! Zo kan ik de klok toch niet lezen??? En het licht uit graag.''')
+        time.sleep(2)
+      elif keuze == 'terug':
+        break
   # acties loggia
-  elif kamer == 'loggia':
-    keuze = input('''
-    1. actie 1
-    2. actie 2
-    Kies actie 1 of 2 of typ 'terug'\n
-    ''')
-    if keuze == str(1):
-      print('je hebt actie 1 gedaan')
-    elif keuze == str(2):
-      print('je hebt actie 2 gedaan')
-    elif keuze == 'terug':
-      print('')
-  # acties slaapkamer
-  elif kamer == 'slaapkamer':
-    keuze = input('''
-    1. actie 1
-    2. actie 2
-    Kies actie 1 of 2 of typ 'terug'\n
-    ''')
-    if keuze == str(1):
-      print('je hebt actie 1 gedaan')
-    elif keuze == str(2):
-      print('je hebt actie 2 gedaan')
-    elif keuze == 'terug':
-      print('')
-  # acties studio
-  elif kamer == 'studio':
-    keuze = input('''
-    1. actie 1
-    2. actie 2
-    Kies actie 1 of 2 of typ 'terug'\n
-    ''')
-    if keuze == str(1):
-      print('je hebt actie 1 gedaan')
-    elif keuze == str(2):
-      print('je hebt actie 2 gedaan')
-    elif keuze == 'terug':
-      print('')
-  # acties toilet
-  elif kamer == 'toilet':
-    keuze = input('''
-    1. actie 1
-    2. actie 2
-    Kies actie 1 of 2 of typ 'terug'\n
-    ''')
-    if keuze == str(1):
-      print('je hebt actie 1 gedaan')
-    elif keuze == str(2):
-      print('je hebt actie 2 gedaan')
-    elif keuze == 'terug':
-      print('')
-  # acties washok
-  elif kamer == 'washok':
-    keuze = input('''
-    1. actie 1
-    2. actie 2
-    Kies actie 1 of 2 of typ 'terug'\n
-    ''')
-    if keuze == str(1):
-      print('je hebt actie 1 gedaan')
-    elif keuze == str(2):
-      print('je hebt actie 2 gedaan')
-    elif keuze == 'terug':
-      print('')
-# acties woonkamer
-  elif kamer == 'woonkamer':
-    keuze = input('''
-    1. actie 1
-    2. actie 2
-    Kies actie 1 of 2 of typ 'terug'\n
-    ''')
-    if keuze == str(1):
-      print('je hebt actie 1 gedaan')
-    elif keuze == str(2):
-      print('je hebt actie 2 gedaan')
-    elif keuze == 'terug':
-      print('')
+  if kamer == 'loggia':
+    while True:
+      keuze = input('''
+1. Neem de stofzuiger mee
+2. actie 2
+Kies actie 1 of 2 of typ 'terug'\n
+actie: ''')
+      if keuze == str(1):
+        print('''
+actie 1 gedaan''')
+        time.sleep(2)
+      elif keuze == str(2):
+        print('''
+actie 2 gedaan''')
+        time.sleep(2)
+      elif keuze == 'terug':
+        break
+
+#   # acties KAMER
+#   elif kamer == 'KAMER':
+#     while True:
+#       keuze = input('''
+# 1. actie 1
+# 2. actie 2
+# Kies actie 1 of 2 of typ 'terug'\n
+# actie: ''')
+#       if keuze == str(1):
+#         print('''
+# actie 1 gedaan''')
+#         time.sleep(2)
+#       elif keuze == str(2):
+#         print('''
+# actie 2 gedaan''')
+#         time.sleep(2)
+#       elif keuze == 'terug':
+#         break

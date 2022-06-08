@@ -15,17 +15,15 @@ start = f'''
 Welkom bij de jaarlijkse schattenjacht ter ere van je verjaardag! 
 Omdat je een hekel hebt aan wandelen, is het dit jaar een luie editie geworden.
 {spelregels}
-test
-'''
+Succes! '''
 
 
 keuken = f'''
-Je begeeft je nu in de keuken. Je ziet een pollepel liggen. De deur naar de ketel staat op een kier.
-'''
+Je begeeft je nu in de keuken. Het plankje onder de koelkast lijkt scheef te zitten. 
+Verder staat de deur naar de ketel op een kier.'''
 
 loggia = f'''
-Je begeeft je nu in de loggia.
-'''
+Je bent nu in de loggia. Niks opvallend te zien.'''
 
 slaapkamer = f'''
 Je begeeft je nu in de slaapkamer.
