@@ -1,2 +1,2 @@
-# schattenjacht_Amir
-text-based treasure hunt for birthday presents
+# schattenjacht_Amir 🤓
+Tekstuele schattenjacht naar verjaardagscadeau's 🔎🎁🎁🎁
