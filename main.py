@@ -10,13 +10,13 @@ inventaris = acties.uitvoeren('inventaris')
 
 def print_overzicht(lijst):
 	if lijst == {} or lijst == []:
-		print(f'Overzicht is leeg')
+		print('\nOverzicht is leeg')
 	elif type(lijst) == dict:
 		for key in lijst.keys():
-			print(key)
+			print(f'- {key}')
 	else:
 		for item in lijst:
-			print(item)
+			print(f'- {item}')
 
 
 def print_omgeving(kamer):
@@ -27,7 +27,7 @@ if __name__ == '__main__':
 	print(teksten.start)
 	while True:
 		instructie = input('\nGa naar: ').lower()
-		if instructie == 'exit':
+		if instructie == 'uitgang':
 			break
 		elif instructie == 'i':
 			print_overzicht(inventaris)
