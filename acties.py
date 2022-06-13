@@ -1,6 +1,26 @@
 import time
+from teksten import *
 
 inventaris = []
+
+
+def keuzemenu(actie1, actie2, resultaat1, resultaat2, resultaat_a, resultaat_b, vervolg1=None, vervolg2=None):
+	print(actie1 + '\n' + actie2)
+	keuze = input('Kies actie 1 of actie 2: ')
+	if keuze == str(1) and vervolg1 == 'ja':
+		vervolg = input(resultaat1)
+	elif keuze == str(1):
+		print(resultaat1)
+		vervolg = None
+	elif keuze == str(2) and vervolg2 == 'ja':
+		vervolg = input(resultaat2)
+	elif keuze == str(2):
+		print(resultaat2)
+		vervolg = None
+	if vervolg == 'j':
+		print(resultaat_a)
+	elif vervolg == 'n':
+		print(resultaat_b)
 
 
 def uitvoeren(kamer):
@@ -9,23 +29,25 @@ def uitvoeren(kamer):
 	# acties keuken
 	if kamer == 'keuken':
 		while True:
-			keuze = input('''
-1. inspecteer het plankje onder de koelkast
-2. inspecteer de deur naar de ketelruimte
-Kies actie 1 of 2 of typ 'terug'\n
-actie: ''')
-			if keuze == str(1):
-				print('''
-Zou het? Niet echt een originele plek voor een cadeau. Je verwijdert het plankje
-en voor je het weet schiet Misha onder de koelkast. POOOEEESSSS. Je kijkt in de
-ruimte maar ziet geen cadeau. Wel een stoffige kat die je er weer onderuit vist.''')
-				time.sleep(2)
-			elif keuze == str(2):
-				print('''
-Doe die deur toch eens dicht! Zo kan ik de klok toch niet lezen??? En het licht uit graag.''')
-				time.sleep(2)
-			elif keuze == 'terug':
-				break
+			keuzemenu(keuken_actie1, keuken_actie2, keuken_resultaat1, keuken_resultaat2, keuken_resultaat_a,
+					  keuken_resultaat_b)
+	# 			keuze = input('''
+	# 1. inspecteer het plankje onder de koelkast
+	# 2. inspecteer de deur naar de ketelruimte
+	# Kies actie 1 of 2 of typ 'terug'\n
+	# actie: ''')
+	# 			if keuze == str(1):
+	# 				print('''
+	# Zou het? Niet echt een originele plek voor een cadeau. Je verwijdert het plankje
+	# en voor je het weet schiet Misha onder de koelkast. POOOEEESSSS. Je kijkt in de
+	# ruimte maar ziet geen cadeau. Wel een stoffige kat die je er weer onderuit vist.''')
+	# 				time.sleep(2)
+	# 			elif keuze == str(2):
+	# 				print('''
+	# Doe die deur toch eens dicht! Zo kan ik de klok toch niet lezen??? En het licht uit graag.''')
+	# 				time.sleep(2)
+	# 			elif keuze == 'terug':
+	# 				break
 	# acties loggia
 	if kamer == 'loggia':
 		while True:
@@ -121,7 +143,7 @@ actie 2 gedaan''')
 			elif keuze == 'terug':
 				break
 
-	# acties KAMER
+# acties KAMER
 #   elif kamer == 'KAMER':
 #     while True:
 #       keuze = input('''
