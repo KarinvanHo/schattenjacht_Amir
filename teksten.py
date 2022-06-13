@@ -59,11 +59,13 @@ woonkamer_alg = f'''
 De woonkamer! Genoeg te zien hier, maar valt er iets op? 
 Hmmm, Misha probeert iets tussen de bank vandaan te halen.
 '''
-woonkamer1_actie1 = '1. Inspecteer bankkussen'
-woonkamer2_actie1 = '1. Gebruik stofzuiger uit je inventaris op bankkussen.'
+woonkamer_actie1 = '1. Inspecteer bankkussen'
 woonkamer_actie2 = '2. Actie 2'
 woonkamer1_resultaat1 = 'Ik zou dit niet zonder stofzuiger doen...'
-woonkamer2_resultaat1 = '''
+woonkamer2_resultaat1 = "Stofzuiger gebruiken? Typ 'j' of 'n'"
+woonkamer3_resultaat1 = "(Hier heb je het papiertje gevonden met daarop de dubieuze tekst: 'a needle in a HAYstack'.)"
+woonkamer_resultaat2 = 'Resultaat 2'
+woonkamer_resultaat_a = '''
 STOFZUIGER GEBRUIKT
 Terwijl je de kruimels stofzuigt, ontdek je een papiertje. Je kan deze nog net onderscheppen 
 voordat deze in de stofzuigerslang verdwijnt. Het volgende staat erop geschreven: 
@@ -73,6 +75,5 @@ voordat deze in de stofzuigerslang verdwijnt. Het volgende staat erop geschreven
 --------------------------
 
 Ok.....'''
-woonkamer3_resultaat1 = "(Hier heb je het papiertje gevonden met daarop de dubieuze tekst: 'a needle in a HAYstack'.)"
-woonkamer_resultaat2 = 'Resultaat 2'
+woonkamer_resultaat_b = "Dan toch lekker niet?"
 
