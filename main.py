@@ -1,12 +1,13 @@
 from teksten import *
+import time
 
 
-kamers = {'keuken': keuken_alg, 'loggia': loggia_alg, 'slaapkamer': slaapkamer,
-		  'studio': studio_alg, 'toilet': toilet_alg, 'washok': washok, 'woonkamer': woonkamer_alg}
+kamers = {'keuken': keuken_alg, 'loggia': loggia_alg, 'slaapkamer': slaapkamer_alg,
+		  'studio': studio_alg, 'toilet': toilet_alg, 'washok': washok_alg, 'woonkamer': woonkamer_alg}
 
 
 inventaris = []
-hints = set()
+hints = {5, 6, 7}
 
 
 def print_overzicht(lijst):
@@ -31,11 +32,13 @@ def vervolgactie(vervolg, resultaat_a, resultaat_b):
 		return resultaat_a
 	elif actie == 'n':
 		return resultaat_b
+	else:
+		return 'Ongeldige keuze'
 
 
 def keuzemenu(actie1, actie2, resultaat1, resultaat2, resultaat_a=None, resultaat_b=None, vervolg1=None, vervolg2=None):
 	print(actie1 + '\n' + actie2)
-	keuze = input("Kies actie 1 of actie 2 of typ 'terug': ").lower()
+	keuze = input("\nKies actie 1 of actie 2 of typ 'terug': ").lower()
 	if keuze == 'terug':
 		return
 	elif keuze == str(1) and vervolg1 == 'ja':
@@ -43,7 +46,7 @@ def keuzemenu(actie1, actie2, resultaat1, resultaat2, resultaat_a=None, resultaa
 	elif keuze == str(1):
 		return resultaat1
 	elif keuze == str(2) and vervolg2 == 'ja':
-		return vervolgactie(resultaat1, resultaat_a, resultaat_b)
+		return vervolgactie(resultaat2, resultaat_a, resultaat_b)
 	elif keuze == str(2):
 		return resultaat2
 
@@ -51,7 +54,9 @@ def keuzemenu(actie1, actie2, resultaat1, resultaat2, resultaat_a=None, resultaa
 if __name__ == '__main__':
 	print(start)
 	while True:
-		if len(hints) == 3:
+		if len(hints) == 4:
+			print('\nff wachten...')
+			time.sleep(5)
 			print(einde)
 			break
 		instructie = input('\nGa naar: ').lower()
@@ -87,6 +92,7 @@ if __name__ == '__main__':
 						inventaris.remove('stofzuiger')
 						inventaris.append('papiertje')
 						hints.add(1)
+						print(hints)
 				else:
 					print(keuzemenu(woonkamer_actie1, woonkamer_actie2, woonkamer3_resultaat1, woonkamer_resultaat2))
 			elif instructie == 'toilet':
@@ -101,6 +107,27 @@ if __name__ == '__main__':
 						inventaris.append('dood zilvervisje')
 				else:
 					print(keuzemenu(toilet2_actie1, toilet_actie2, toilet2_resultaat1, toilet_resultaat2))
-
+			elif instructie == 'studio':
+				luisteren = keuzemenu(studio_actie1, studio_actie2, studio_resultaat1, studio_resultaat2)
+				print(luisteren)
+				if luisteren == studio_resultaat2:
+					hints.add(2)
+					print(hints)
+			elif instructie == 'slaapkamer':
+				bekijken = keuzemenu(slaapkamer_actie1, slaapkamer_actie2, slaapkamer_resultaat1, slaapkamer_resultaat2)
+				print(bekijken)
+				if bekijken == slaapkamer_resultaat1:
+					hints.add(3)
+					print(hints)
+			elif instructie == 'washok':
+				if 'bierviltjes' not in inventaris:
+					leeghalen = keuzemenu(washok_actie1, washok_actie2, washok_resultaat1, washok1_resultaat2,
+									resultaat_a=washok_resultaat_a, resultaat_b=washok_resultaat_b, vervolg2='ja')
+					print(leeghalen)
+					if leeghalen == washok_resultaat_a:
+						inventaris.append('bierviltjes')
+						hints.add(4)
+				else:
+					print(keuzemenu(washok_actie1, washok_actie2, washok_resultaat1, washok2_resultaat2))
 		else:
 			print("Controleer je spelling. Bij twijfel raadpleeg de spelregels door 'help' te typen.")
