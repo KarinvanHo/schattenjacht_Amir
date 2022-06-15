@@ -1,3 +1,3 @@
 # schattenjacht_Amir 🤓
 Tekstuele schattenjacht naar verjaardagscadeau's 🔎🎁🎁🎁
-\nVergeef me de schoonheidsfoutjes 🙃
+Vergeef me de schoonheidsfoutjes 🙃
