@@ -4,14 +4,12 @@ import time
 
 kamers = {'keuken': keuken_alg, 'loggia': loggia_alg, 'slaapkamer': slaapkamer_alg,
 		  'studio': studio_alg, 'toilet': toilet_alg, 'washok': washok_alg, 'woonkamer': woonkamer_alg}
-
-
 inventaris = []
-hints = {5, 6, 7}
+hints = set()
 
 
 def print_overzicht(lijst):
-	if lijst == {} or lijst == []:
+	if lijst == {} or lijst == [] or lijst == set():
 		print('\nOverzicht is leeg')
 	elif type(lijst) == dict:
 		for key in lijst.keys():
@@ -33,14 +31,14 @@ def vervolgactie(vervolg, resultaat_a, resultaat_b):
 	elif actie == 'n':
 		return resultaat_b
 	else:
-		return 'Ongeldige keuze'
+		return 'Ongeldige keuze.'
 
 
 def keuzemenu(actie1, actie2, resultaat1, resultaat2, resultaat_a=None, resultaat_b=None, vervolg1=None, vervolg2=None):
 	print(actie1 + '\n' + actie2)
 	keuze = input("\nKies actie 1 of actie 2 of typ 'terug': ").lower()
 	if keuze == 'terug':
-		return
+		return ''
 	elif keuze == str(1) and vervolg1 == 'ja':
 		return vervolgactie(resultaat1, resultaat_a, resultaat_b)
 	elif keuze == str(1):
@@ -49,6 +47,8 @@ def keuzemenu(actie1, actie2, resultaat1, resultaat2, resultaat_a=None, resultaa
 		return vervolgactie(resultaat2, resultaat_a, resultaat_b)
 	elif keuze == str(2):
 		return resultaat2
+	else:
+		return 'Controleer je spelling.'
 
 
 if __name__ == '__main__':
@@ -66,6 +66,8 @@ if __name__ == '__main__':
 			print_overzicht(inventaris)
 		elif instructie == 'k':
 			print_overzicht(kamers)
+		elif instructie == 'hints':
+			print_overzicht(hints)
 		elif instructie == 'help':
 			print(spelregels)
 		elif instructie in kamers:
@@ -91,8 +93,7 @@ if __name__ == '__main__':
 					if stofzuigen == woonkamer_resultaat_a:
 						inventaris.remove('stofzuiger')
 						inventaris.append('papiertje')
-						hints.add(1)
-						print(hints)
+						hints.add(hint1)
 				else:
 					print(keuzemenu(woonkamer_actie1, woonkamer_actie2, woonkamer3_resultaat1, woonkamer_resultaat2))
 			elif instructie == 'toilet':
@@ -111,22 +112,20 @@ if __name__ == '__main__':
 				luisteren = keuzemenu(studio_actie1, studio_actie2, studio_resultaat1, studio_resultaat2)
 				print(luisteren)
 				if luisteren == studio_resultaat2:
-					hints.add(2)
-					print(hints)
+					hints.add(hint2)
 			elif instructie == 'slaapkamer':
 				bekijken = keuzemenu(slaapkamer_actie1, slaapkamer_actie2, slaapkamer_resultaat1, slaapkamer_resultaat2)
 				print(bekijken)
 				if bekijken == slaapkamer_resultaat1:
-					hints.add(3)
-					print(hints)
+					hints.add(hint3)
 			elif instructie == 'washok':
 				if 'bierviltjes' not in inventaris:
 					leeghalen = keuzemenu(washok_actie1, washok_actie2, washok_resultaat1, washok1_resultaat2,
-									resultaat_a=washok_resultaat_a, resultaat_b=washok_resultaat_b, vervolg2='ja')
+										  resultaat_a=washok_resultaat_a, resultaat_b=washok_resultaat_b, vervolg2='ja')
 					print(leeghalen)
 					if leeghalen == washok_resultaat_a:
 						inventaris.append('bierviltjes')
-						hints.add(4)
+						hints.add(hint4)
 				else:
 					print(keuzemenu(washok_actie1, washok_actie2, washok_resultaat1, washok2_resultaat2))
 		else:
